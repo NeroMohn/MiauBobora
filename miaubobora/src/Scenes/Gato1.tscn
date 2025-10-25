@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnjxq6308tmsh"]
+
+[ext_resource type="Script" uid="uid://dgkratll1trw7" path="res://src/Scripts/gato1.gd" id="1_nxoch"]
+[ext_resource type="Texture2D" uid="uid://pgf8ntie3e4n" path="res://icon.svg" id="2_m8j4y"]
+[ext_resource type="PackedScene" uid="uid://bbf1gcxyyur5d" path="res://src/Scenes/Line2D.tscn" id="3_8s05a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tlye"]
+size = Vector2(116, 120)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_nxoch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6tlye")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_m8j4y")
+
+[node name="Line2D" parent="." instance=ExtResource("3_8s05a")]

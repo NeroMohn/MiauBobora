@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbf1gcxyyur5d"]
+
+[ext_resource type="Script" uid="uid://dxxhfw6amcrqu" path="res://src/Scripts/slingshot.gd" id="1_s6r05"]
+
+[sub_resource type="Gradient" id="Gradient_bnmuk"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.19178082)
+colors = PackedColorArray(0.79132825, 0.99999994, 0.9922032, 1, 0.82762706, 0.11762696, 0.10283249, 1)
+
+[node name="Line2D" type="Line2D"]
+points = PackedVector2Array(0, 0, 0, 0)
+closed = true
+gradient = SubResource("Gradient_bnmuk")
+antialiased = true
+script = ExtResource("1_s6r05")

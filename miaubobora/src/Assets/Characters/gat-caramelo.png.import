@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5yor884tewci"
-path="res://.godot/imported/cat.png-9d16d80a1ca82692a8612e19d5fdfc23.ctex"
+uid="uid://d2f1uhvlab7xr"
+path="res://.godot/imported/gat-caramelo.png-82746bf810fae3a083ddb9a7af8f89fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Assets/placeholder/cat.png"
-dest_files=["res://.godot/imported/cat.png-9d16d80a1ca82692a8612e19d5fdfc23.ctex"]
+source_file="res://src/Assets/Characters/gat-caramelo.png"
+dest_files=["res://.godot/imported/gat-caramelo.png-82746bf810fae3a083ddb9a7af8f89fc.ctex"]
 
 [params]
 

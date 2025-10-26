@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://ddk4y2455e0l2"]
+
+[ext_resource type="Script" uid="uid://dgkratll1trw7" path="res://src/Scripts/gato1.gd" id="1_yvd3f"]
+[ext_resource type="PackedScene" uid="uid://bbf1gcxyyur5d" path="res://src/Scenes/Line2D.tscn" id="2_8t0om"]
+[ext_resource type="Texture2D" uid="uid://w2h384i1u2ww" path="res://src/Assets/Characters/gato-branco.png" id="3_yvd3f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tlye"]
+size = Vector2(116, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t0om"]
+atlas = ExtResource("3_yvd3f")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdrjk"]
+atlas = ExtResource("3_yvd3f")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x7kc"]
+atlas = ExtResource("3_yvd3f")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg85q"]
+atlas = ExtResource("3_yvd3f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypie1"]
+atlas = ExtResource("3_yvd3f")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xt6yq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t0om")
+}],
+"loop": true,
+"name": &"Flying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdrjk")
+}],
+"loop": true,
+"name": &"Sleeping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1x7kc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg85q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1x7kc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypie1")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 3.0
+}]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_yvd3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_6tlye")
+
+[node name="Line2D" parent="." instance=ExtResource("2_8t0om")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xt6yq")
+animation = &"Walking"
+autoplay = "Walking"
+frame_progress = 0.68900704

@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://8kbbmkcswf6c"]
+
+[ext_resource type="Script" uid="uid://dgkratll1trw7" path="res://src/Scripts/gato1.gd" id="1_ufffv"]
+[ext_resource type="PackedScene" uid="uid://bbf1gcxyyur5d" path="res://src/Scenes/Line2D.tscn" id="2_skfk5"]
+[ext_resource type="Texture2D" uid="uid://q0owmr5esiyc" path="res://src/Assets/Characters/gato-capiroto.png" id="3_skfk5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tlye"]
+size = Vector2(116, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1w7g"]
+atlas = ExtResource("3_skfk5")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a025"]
+atlas = ExtResource("3_skfk5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufffv"]
+atlas = ExtResource("3_skfk5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skfk5"]
+atlas = ExtResource("3_skfk5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umvu6"]
+atlas = ExtResource("3_skfk5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xt6yq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1w7g")
+}],
+"loop": true,
+"name": &"Flying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5a025")
+}],
+"loop": true,
+"name": &"Sleeping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufffv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skfk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufffv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umvu6")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 3.0
+}]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_ufffv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_6tlye")
+
+[node name="Line2D" parent="." instance=ExtResource("2_skfk5")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xt6yq")
+animation = &"Walking"
+autoplay = "Walking"
+frame_progress = 0.4413895

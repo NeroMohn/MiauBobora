@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://co5113m67p1wx"]
+[gd_scene load_steps=18 format=4 uid="uid://co5113m67p1wx"]
 
 [ext_resource type="Texture2D" uid="uid://cgefmygekmso" path="res://src/Assets/Background/Night.png" id="1_evum0"]
 [ext_resource type="Script" uid="uid://3nd3os8wk5sh" path="res://src/Scripts/gameManager.gd" id="1_j2fga"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://8kbbmkcswf6c" path="res://src/Scenes/Gato3.tscn" id="9_lkfky"]
 [ext_resource type="PackedScene" uid="uid://y52qunpu4jv2" path="res://src/Scenes/Gato4.tscn" id="10_kru74"]
 [ext_resource type="PackedScene" uid="uid://cxqy54ufeu7aw" path="res://src/Scenes/Gato5.tscn" id="11_kru74"]
-[ext_resource type="PackedScene" uid="uid://bbf1gcxyyur5d" path="res://src/Scenes/Line2D.tscn" id="12_1po67"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evum0"]
 texture = ExtResource("2_gtndr")
@@ -1567,24 +1566,17 @@ tile_set = SubResource("TileSet_kru74")
 [node name="aboboras" type="Node" parent="."]
 
 [node name="Abobora" parent="aboboras" instance=ExtResource("4_gtndr")]
-position = Vector2(383, -112)
+position = Vector2(383, -87)
 
 [node name="Abobora2" parent="aboboras" instance=ExtResource("4_gtndr")]
-position = Vector2(553, -192)
+position = Vector2(553, -167)
 
 [node name="Abobora3" parent="aboboras" instance=ExtResource("4_gtndr")]
-position = Vector2(947, -177)
+position = Vector2(947, -152)
 
 [node name="Slingshot" type="Sprite2D" parent="."]
 position = Vector2(153, -31)
 texture = ExtResource("5_yfb38")
-
-[node name="Button" type="Button" parent="Slingshot"]
-offset_left = -49.0
-offset_top = -273.0
-offset_right = -41.0
-offset_bottom = -265.0
-scale = Vector2(6.3822284, 6.3822284)
 
 [node name="Gatos" type="Node" parent="."]
 
@@ -1602,13 +1594,3 @@ position = Vector2(17, -12)
 
 [node name="Gato5" parent="Gatos" instance=ExtResource("11_kru74")]
 position = Vector2(-16, -12)
-
-[node name="Timer" type="Timer" parent="."]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(575, -157)
-
-[node name="Line2D" parent="." instance=ExtResource("12_1po67")]
-
-[connection signal="button_up" from="Slingshot/Button" to="." method="_on_button_button_up"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

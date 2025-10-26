@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://cemnmvl23vjoh"]
+
+[ext_resource type="Texture2D" uid="uid://coph7hpo80si3" path="res://src/Assets/Characters/abobora.png" id="1_3w4dd"]
+[ext_resource type="Script" uid="uid://6vjs8wpnln1s" path="res://src/Scripts/abobora.gd" id="1_kiuwi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kiuwi"]
+atlas = ExtResource("1_3w4dd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2m3ac"]
+atlas = ExtResource("1_3w4dd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rqkbj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kiuwi")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2m3ac")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3w4dd"]
+radius = 8.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_kiuwi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rqkbj")
+animation = &"Hit"
+autoplay = "Idle"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AreaCollider" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3w4dd")
+
+[node name="Timer" type="Timer" parent="Area2D"]
+wait_time = 2.0389999999999997
+
+[node name="BodyCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3w4dd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Area2D/Timer" to="." method="_on_timer_timeout"]
